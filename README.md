@@ -45,7 +45,7 @@ DaG-Radar-core/
 
 The reference environment uses:
 
-- Python 3.8
+- Python 3.9
 - PyTorch 1.12.0 with CUDA 11.3
 - OpenPCDet-compatible CUDA extensions
 - MMCV 1.6.0
