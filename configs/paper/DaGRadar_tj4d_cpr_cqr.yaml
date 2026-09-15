@@ -1,0 +1,43 @@
+_BASE_CONFIG_: tools/cfgs/MAFF-Net/MAFF-Net_TJ4D.yaml
+
+MODEL:
+    NAME: DaGRadar
+    DUAL_REPRESENTATION:
+        FUSION_MODE: proposal
+        ENABLE_GAUSSIAN_OBJECT_STREAM: True
+        ENABLE_GEOMETRY_RECONCILIATION: True
+        GAUSSIAN_OBJECT_STREAM:
+            CONFIG_PATH: third_party/RadarGaussianDet3D/plugin/RadarGaussianDet3D/configs/gaussian_sec_tj4d_radar_centerhead.py
+            CHECKPOINT_PATH: ''  # supply the stream-specific PGS checkpoint used for paper initialization
+            INPUT_LAYOUT: tj4d_compact
+            RETURN_MEAN: [0.0, 0.0, 0.0, -6.569, 86.196, 10.526, -1.093, -0.347]
+            RETURN_STD: [1.0, 1.0, 1.0, 1.496, 70.192, 3.643, 20.438, 3.902]
+        FEATURE_FUSION:
+            DENSE_CHANNELS: 64
+            GAUSSIAN_CHANNELS: 64
+            OUT_CHANNELS: 64
+        MAX_PROPOSALS: 128
+        MATCH_RADII: [1.6, 0.55, 0.9, 3.0]
+        GEOMETRY_TRUST: [1.0, 1.0, 0.0, 1.0]
+        RECOVERY_THRESHOLD: 0.1
+        LEARNED_CPR:
+            ENABLED: True
+            MODE: learned
+            MAX_DENSE_PROPOSALS: 100
+            HIDDEN_DIM: 64
+            MATCH_THRESHOLD: 0.5
+            LOSS_WEIGHT: 0.2
+        LEARNED_CQR:
+            ENABLED: True
+            USE_RELATION_FEATURES: True
+            HIDDEN_DIM: 64
+            CLASS_EMBED_DIM: 8
+            MAX_LOGIT_RESIDUAL: 0.01
+            RANK_MARGIN_EPS: 0.05
+            QUALITY_LOSS_WEIGHT: 0.2
+            RANK_LOSS_WEIGHT: 0.05
+
+OPTIMIZATION:
+    BATCH_SIZE_PER_GPU: 4
+    NUM_EPOCHS: 30
+    LR: 0.0001

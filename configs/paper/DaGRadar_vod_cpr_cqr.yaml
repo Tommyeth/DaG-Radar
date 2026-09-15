@@ -1,0 +1,12 @@
+_BASE_CONFIG_: configs/paper/DaGRadar_vod_paper_base.yaml
+
+MODEL:
+    DUAL_REPRESENTATION:
+        ENABLE_GAUSSIAN_OBJECT_STREAM: True
+        FUSION_MODE: proposal
+        LEARNED_CPR:
+            ENABLED: True
+            MODE: learned
+        LEARNED_CQR:
+            ENABLED: True
+            USE_RELATION_FEATURES: True

@@ -1,0 +1,30 @@
+numpy
+requests
+llvmlite
+numba
+tensorboardX
+easydict
+pyyaml
+scikit-image
+scikit-learn
+scipy
+tqdm
+SharedArray
+einops
+Pillow
+matplotlib
+opencv-python-headless
+fire
+
+# CUDA 11.3 training stack
+--extra-index-url https://download.pytorch.org/whl/cu113
+torch==1.12.0+cu113
+torchvision==0.13.0+cu113
+spconv-cu113
+
+# Point-Gaussian stream (RadarGaussianDet3D plugin)
+mmcv-full==1.6.0
+mmdet==2.25.0
+mmsegmentation==0.26.0
+mmdet3d==1.0.0rc3
+vod-tudelft==1.0.3

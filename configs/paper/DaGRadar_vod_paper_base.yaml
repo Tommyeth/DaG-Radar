@@ -1,0 +1,12 @@
+_BASE_CONFIG_: configs/DaGRadar_vod.yaml
+
+DATA_CONFIG:
+    INFO_PATH: {
+        'train': [vod_infos_train.pkl],
+        'test': [vod_infos_val.pkl],
+    }
+
+OPTIMIZATION:
+    BATCH_SIZE_PER_GPU: 16
+    NUM_EPOCHS: 30
+    LR: 0.0001
