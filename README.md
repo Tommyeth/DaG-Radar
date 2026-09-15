@@ -120,3 +120,11 @@ TJ4DRadSet experiment uses the corresponding configuration listed above.
 This implementation builds on OpenPCDet and incorporates components adapted
 from MAFF-Net and RadarGaussianDet3D. We thank the authors of these projects for
 making their research code available.
+
+## License
+
+This repository is released under the Apache License 2.0 (see `LICENSE`),
+except for
+`third_party/RadarGaussianDet3D/plugin/RadarGaussianDet3D/ops/diff-gaussian-rasterization-bev/`.
+This folder is under the Gaussian-Splatting non-commercial license, not
+Apache-2.0; see the `LICENSE.md` file in that folder.
